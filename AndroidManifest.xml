@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.brunjoy.video"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- .. -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+
+    <application
+        android:name="com.brunjoy.dlna.UI.MyApplication"
+        android:icon="@drawable/sym_def_app_icon"
+        android:label="@string/app_name" >
+        <activity android:name="com.cattsoft.multimediaviewer.VideoViewer" />
+        <activity android:name="com.cattsoft.multimediaviewer.VideoList" />
+        <activity android:name="com.cattsoft.multimediaviewer.VideoPlayer" />
+        <activity android:name="com.cattsoft.multimediaviewer.AudioViewer" />
+        <activity android:name="com.cattsoft.multimediaviewer.AudioList" />
+        <activity android:name="com.cattsoft.multimediaviewer.AudioPlayer" />
+        <activity android:name="com.cattsoft.multimediaviewer.ImageViewer" />
+        <activity
+            android:name="com.cattsoft.multimediaviewer.ImagePlayer"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity android:name="com.cattsoft.multimediaviewer.ImageList" />
+        <activity
+            android:name="com.brunjoy.weiget.BaseServerActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.brunjoy.recommend.RecommendAPPActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+
+        <!-- end video  player -->
+        <activity
+            android:name="io.vov.vitamio.activity.InitActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <service
+            android:name="io.vov.vitamio.VitamioService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="io.vov.vitamio.IVitamioService" />
+            </intent-filter>
+        </service>
+
+        <!-- start video  player -->
+        <activity
+            android:name="com.brunjoy.duanluo.video.VideoViewActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="com.brunjoy.player.action.VIEW" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+                <category android:name="android.intent.category.BROWSABLE" >
+                </category>
+
+                <data
+                    android:mimeType="*/*"
+                    android:scheme="*" >
+                </data>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" >
+                </action>
+
+                <category android:name="android.intent.category.LAUNCHER" >
+                </category>
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+                <category android:name="android.intent.category.BROWSABLE" >
+                </category>
+
+                <data
+                    android:mimeType="audio/*"
+                    android:scheme="http" >
+                </data>
+                <data
+                    android:mimeType="audio/*"
+                    android:scheme="rtsp" >
+                </data>
+                <data
+                    android:mimeType="audio/*"
+                    android:scheme="rtmp" >
+                </data>
+                <data
+                    android:mimeType="audio/*"
+                    android:scheme="udp" >
+                </data>
+                <data
+                    android:mimeType="audio/*"
+                    android:scheme="tcp" >
+                </data>
+                <data
+                    android:mimeType="audio/*"
+                    android:scheme="file" >
+                </data>
+                <data
+                    android:mimeType="audio/*"
+                    android:scheme="content" >
+                </data>
+                <data
+                    android:mimeType="audio/*"
+                    android:scheme="mms" >
+                </data>
+                <data
+                    android:mimeType="video/*"
+                    android:scheme="http" >
+                </data>
+                <data
+                    android:mimeType="video/*"
+                    android:scheme="rtsp" >
+                </data>
+                <data
+                    android:mimeType="video/*"
+                    android:scheme="rtmp" >
+                </data>
+                <data
+                    android:mimeType="video/*"
+                    android:scheme="udp" >
+                </data>
+                <data
+                    android:mimeType="video/*"
+                    android:scheme="tcp" >
+                </data>
+                <data
+                    android:mimeType="video/*"
+                    android:scheme="file" >
+                </data>
+                <data
+                    android:mimeType="video/*"
+                    android:scheme="content" >
+                </data>
+                <data
+                    android:mimeType="video/*"
+                    android:scheme="mms" >
+                </data>
+                <data android:mimeType="application/octet-stream" >
+                </data>
+                <data android:mimeType="application/x-mpegurl" >
+                </data>
+                <data android:mimeType="application/vnd.apple.mpegurl" >
+                </data>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+
+                <data android:scheme="content" >
+                </data>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+                <category android:name="android.intent.category.BROWSABLE" >
+                </category>
+
+                <data
+                    android:mimeType="application/x-mpegurl"
+                    android:scheme="http" >
+                </data>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+                <category android:name="android.intent.category.BROWSABLE" >
+                </category>
+
+                <data android:scheme="rtsp" >
+                </data>
+                <data android:scheme="rtmp" >
+                </data>
+                <data android:scheme="mms" >
+                </data>
+                <data android:scheme="tcp" >
+                </data>
+                <data android:scheme="udp" >
+                </data>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" >
+                </action>
+                <action android:name="android.intent.action.SEND" >
+                </action>
+                <action android:name="android.intent.action.SENDTO" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+
+                <data android:mimeType="video/*" >
+                </data>
+                <data android:mimeType="application/sdp" >
+                </data>
+                <data android:mimeType="application/octet-stream" >
+                </data>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+                <category android:name="android.intent.category.BROWSABLE" >
+                </category>
+
+                <data android:scheme="http" >
+                </data>
+                <data android:mimeType="video/*" >
+                </data>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+                <category android:name="android.intent.category.BROWSABLE" >
+                </category>
+
+                <data android:scheme="file" >
+                </data>
+                <data android:scheme="content" >
+                </data>
+                <data android:scheme="http" >
+                </data>
+                <data android:scheme="https" >
+                </data>
+                <data android:scheme="ftp" >
+                </data>
+                <data android:scheme="rtsp" >
+                </data>
+                <data android:scheme="rtmp" >
+                </data>
+                <data android:scheme="mms" >
+                </data>
+                <data android:scheme="tcp" >
+                </data>
+                <data android:scheme="udp" >
+                </data>
+                <data android:scheme="gopher" >
+                </data>
+                <data android:mimeType="video/*" >
+                </data>
+                <data android:mimeType="audio/*" >
+                </data>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+                <category android:name="android.intent.category.BROWSABLE" >
+                </category>
+
+                <data android:scheme="file" >
+                </data>
+                <data android:scheme="content" >
+                </data>
+                <data android:scheme="http" >
+                </data>
+                <data android:scheme="https" >
+                </data>
+                <data android:scheme="ftp" >
+                </data>
+                <data android:scheme="rtsp" >
+                </data>
+                <data android:scheme="rtmp" >
+                </data>
+                <data android:scheme="mms" >
+                </data>
+                <data android:scheme="tcp" >
+                </data>
+                <data android:scheme="udp" >
+                </data>
+                <data android:scheme="gopher" >
+                </data>
+                <data android:host="*" >
+                </data>
+                <data android:pathPattern=".*\.avi" >
+                </data>
+                <data android:pathPattern=".*\.asf" >
+                </data>
+                <data android:pathPattern=".*\.f4v" >
+                </data>
+                <data android:pathPattern=".*\.flv" >
+                </data>
+                <data android:pathPattern=".*\.mkv" >
+                </data>
+                <data android:pathPattern=".*\.mpeg" >
+                </data>
+                <data android:pathPattern=".*\.mpg" >
+                </data>
+                <data android:pathPattern=".*\.mov" >
+                </data>
+                <data android:pathPattern=".*\.rm" >
+                </data>
+                <data android:pathPattern=".*\.vob" >
+                </data>
+                <data android:pathPattern=".*\.wmv" >
+                </data>
+                <data android:pathPattern=".*\.ts" >
+                </data>
+                <data android:pathPattern=".*\.tp" >
+                </data>
+                <data android:pathPattern=".*\.m3u" >
+                </data>
+                <data android:pathPattern=".*\.m3u8" >
+                </data>
+                <data android:pathPattern=".*\.m4v" >
+                </data>
+                <data android:pathPattern=".*\.mp4" >
+                </data>
+            </intent-filter>
+        </activity>
+
+        <service android:name=".activity.WireUpnpService" />
+
+        <activity android:name="com.brunjoy.dlna.UI.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">DLAN 播放器</string>
+    
+    <string name="search_lan">Search LAN</string>
+    <string name="toggle_debug_logging">Toggle debug logging</string>
+    <string name="searching_lan">Searching LAN for UPnP devices...</string>
+    <string name="enabling_debug_logging">Enabling debug logging...</string>
+    <string name="disabling_debug_logging">Disabling debug logging...</string>
+    <string name="registering_demo_device">Registering UPnP device...</string>
+    <string name="create_demo_failed">Creating of device failed, check the log!</string>
+    
+    <string name="video">Video</string>
+    <string name="audio">Audio</string>
+    <string name="image">Images</string>
+</resources>

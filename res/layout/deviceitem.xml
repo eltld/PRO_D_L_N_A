@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/itemDevice_thunm"
+        android:layout_width="52dip"
+        android:layout_height="52dip"
+        android:layout_margin="10dip"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/itemDeviceName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:singleLine="true"
+        android:text="@string/audio"
+        android:textSize="18dp" />
+
+</LinearLayout>

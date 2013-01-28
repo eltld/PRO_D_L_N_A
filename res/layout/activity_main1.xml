@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:gravity="center"
+    android:background="@drawable/main_background">
+
+
+    <Button
+        android:id="@+id/picture_viewer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/btn_priture_str"
+        android:textColor="@color/turquoise"
+        android:background="@drawable/button_selector"/>
+
+    <Button
+        android:id="@+id/audio_viewer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/picture_viewer"
+        android:layout_below="@+id/picture_viewer"
+        android:text="@string/btn_audio_str"
+        android:textColor="@color/turquoise"
+        android:background="@drawable/button_selector"/>
+
+    <Button
+        android:id="@+id/video_viewer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/audio_viewer"
+        android:layout_below="@+id/audio_viewer"
+        android:text="@string/btn_video_str"
+        android:textColor="@color/turquoise"
+        android:background="@drawable/button_selector"/>
+
+</RelativeLayout>

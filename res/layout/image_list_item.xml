@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal" 
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+    <ImageView 
+        android:id="@+id/image_thumbutil"
+        android:layout_width="100dp"
+        android:layout_height="80dp"/>
+	
+	<LinearLayout 
+	    android:orientation="vertical"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:gravity="center">
+		
+		<TextView android:id="@+id/image_name" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:paddingTop="5dip"
+			android:textColor="@color/orchid"/>
+		
+		<TextView android:id="@+id/image_path"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:paddingBottom="5dip"
+		    android:textColor="@color/tomato"/>
+		
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:layout_width="wrap_content"
+	    android:layout_height="match_parent"
+	    android:gravity="center_vertical|right"
+	    android:orientation="vertical">
+	    
+	    <TextView 
+	        android:id="@+id/size"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:paddingRight="5dip"
+	        android:textColor="@color/darkgoldenrod"/>
+	    
+	</LinearLayout>
+	
+</LinearLayout>

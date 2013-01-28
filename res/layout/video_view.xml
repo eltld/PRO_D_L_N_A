@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- <io.vov.vitamio.widget.VideoView -->
+    <!-- android:id="@+id/surface_view" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="match_parent" /> -->
+
+    <SurfaceView
+        android:id="@+id/mSurfaceView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true" />
+
+    <!-- <Button -->
+    <!-- android:id="@+id/video_mosaic" -->
+    <!-- android:layout_width="74dip" -->
+    <!-- android:layout_height="35dip" -->
+    <!-- android:layout_alignParentRight="true" -->
+    <!-- android:layout_marginRight="113dip" -->
+    <!-- android:layout_marginTop="16dip" -->
+    <!-- android:background="@drawable/mosaic" -->
+    <!-- android:maxHeight="30dip" -->
+    <!-- android:shadowColor="#000" -->
+    <!-- android:shadowDx="3" -->
+    <!-- android:shadowDy="3" -->
+    <!-- android:shadowRadius="3" -->
+    <!-- android:textColor="#FFFFFF" -->
+    <!-- android:visibility="gone" -->
+    <!-- android:textSize="28dip" -->
+    <!-- android:textStyle="bold" /> -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/video_loading"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ProgressBar
+                android:layout_width="40dip"
+                android:layout_height="40dip" />
+
+            <TextView
+                android:id="@+id/video_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dip"
+                android:textSize="16dip" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/video_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/video_top"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#501a1a1a"
+            android:gravity="center_vertical" >
+
+            <Button
+                android:id="@+id/btn_video_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dip"
+                android:background="@null"
+                android:focusable="true"
+                android:text="返回"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/tv_video_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:text="视频名字"
+                android:textSize="22dip" />
+
+            <!-- <ImageButton -->
+            <!-- android:id="@+id/btn_video_rigth" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_alignParentRight="true" -->
+            <!-- android:layout_centerVertical="true" -->
+            <!-- android:layout_marginRight="8dip" -->
+            <!-- android:background="@null" -->
+            <!-- android:focusable="true" -->
+            <!-- android:src="@drawable/sign_menu" -->
+            <!-- android:textColor="@color/video_bg" /> -->
+        </RelativeLayout>
+
+        <SeekBar
+            android:id="@+id/volunme_seekbar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:maxHeight="8dip"
+            android:minHeight="2dip"
+            android:minWidth="180dip"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/video_bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#501a1a1a"
+            android:gravity="center_vertical"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip" >
+
+            <Button
+                android:id="@+id/btn_video_startOrPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dip"
+                android:background="@null"
+                android:focusable="true"
+                android:text="播放"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/tv_video_current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="14dip"
+                android:layout_marginRight="4dip"
+                android:text="00:00"
+                android:layout_toRightOf="@id/btn_video_startOrPause"
+                android:textSize="18dp" />
+
+            <TextView
+                android:text="00:00"
+                android:id="@+id/tv_video_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="14dip"
+                android:textSize="18dp" />
+
+            <SeekBar
+                android:id="@+id/video_seekbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/tv_video_duration"
+                android:layout_toRightOf="@id/tv_video_current"
+                android:maxHeight="8dip"
+                android:minHeight="2dip"
+                android:minWidth="180dip" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/videoViewTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dip"
+        android:textSize="18dip" />
+    <!-- </HorizontalScrollView> -->
+
+</RelativeLayout>

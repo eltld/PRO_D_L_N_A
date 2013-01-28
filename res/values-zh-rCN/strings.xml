@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+
+    <string name="app_name">WireMe</string>
+    <string name="search_lan">Search LAN</string>
+    <string name="toggle_debug_logging">Toggle debug logging</string>
+    <string name="searching_lan">Searching LAN for UPnP devices...</string>
+    <string name="enabling_debug_logging">Enabling debug logging...</string>
+    <string name="disabling_debug_logging">Disabling debug logging...</string>
+    <string name="registering_demo_device">Registering UPnP device...</string>
+    <string name="create_demo_failed">Creating of device failed, check the log!</string>
+    <string name="refresh">刷新</string>
+    <string name="video">视频</string>
+    <string name="audio">音乐</string>
+    <string name="image">图片</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="device">设备</string>
+    <string name="browse">浏览</string>
+    <string name="player">播放</string>
+    <string name="play_slider">幻灯片播放</string>
+    <string name="setting">设置</string>
+    <string name="no_find_device">没有发现设备</string>
+    <string name="question_1">是否使用“段落”播放器</string>
+    <string name="content_1">建议使用“段落”播放器，段落里内置播放器可以播放几乎全部视频</string>
+    <string name="ok">确定</string>
+    <string name="cancle">取消</string>
+    <string name="other">其他</string>
+    <string name="init_decoders">正在解压…</string>
+    <string name="recommendApp">精彩内容推荐</string>
+    
+    <string name="localDevice">本地设备</string>
+
+</resources>

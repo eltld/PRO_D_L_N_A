@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+    
+    <ImageView 
+        android:id="@+id/album_pic"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+    
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical">
+        
+        <TextView 
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:text="180度"
+            android:textColor="@color/orchid"
+            android:paddingTop="5dip"
+            android:paddingLeft="5dip"/>
+        
+        <TextView 
+            android:id="@+id/artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/tomato"
+            android:text="孙燕姿"
+            android:paddingBottom="5dip"
+            android:paddingLeft="5dip"/>
+        
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|right">
+        
+        <TextView 
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:textSize="18dp"
+			android:textColor="@color/darkgoldenrod"
+			android:text="05:19"
+			android:paddingTop="5dip"
+			android:paddingRight="3dip"/>
+        
+        <TextView 
+            android:id="@+id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/greenyellow"
+            android:text="5.3M"
+            android:paddingBottom="5dip"
+            android:paddingRight="3dip"/>
+        
+    </LinearLayout>
+
+</LinearLayout>

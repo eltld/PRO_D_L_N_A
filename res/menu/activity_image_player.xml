@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/path"
+        android:title="@string/data_from_path"/>
+    <item android:id="@+id/uri"
+        android:title="@string/data_from_uri"/>
+    <item android:id="@+id/play"
+        android:title="本地列表"/>
+</menu>
