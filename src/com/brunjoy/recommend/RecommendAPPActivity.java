@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.brunjoy.duanluo.imgdowner.ImageDownloader;
 import com.brunjoy.duanluo.imgdowner.MyLog;
 import com.brunjoy.video.R;
-import com.brunjoy.weiget.BaseServerActivity;
 import com.wireme.util.JsonAnalysis;
 import com.wireme.util.MyDataManager;
 import com.wireme.util.MyDataManager.MyCallBacke;

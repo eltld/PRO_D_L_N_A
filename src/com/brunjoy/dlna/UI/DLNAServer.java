@@ -32,7 +32,6 @@ import org.teleal.cling.support.model.SortCriterion;
 import org.teleal.cling.support.model.WriteStatus;
 import org.teleal.cling.support.model.container.Container;
 import org.teleal.cling.support.model.item.ImageItem;
-import org.teleal.cling.support.model.item.Item;
 import org.teleal.cling.support.model.item.MusicTrack;
 import org.teleal.cling.support.model.item.VideoItem;
 import org.teleal.common.util.MimeType;
@@ -92,10 +91,12 @@ public class DLNAServer {
     }
 
     private DLNAServer(Context context) {
+      
         this.mContext = context.getApplicationContext( );
+        initListener( );
         deviceListRegistryListener = new DeviceListRegistryListener( );
         mContext.bindService( new Intent( mContext, WireUpnpService.class ), serviceConnection, Context.BIND_AUTO_CREATE );
-        initListener( );
+    
     }
 
     private Handler mHandler = new Handler( ) {
@@ -500,7 +501,7 @@ public class DLNAServer {
             final DeviceItem display = new DeviceItem( device, device.getDetails( ).getFriendlyName( ), device.getDisplayString( ), "(REMOTE) "
                     + device.getType( ).getDisplayString( ) );
             Log.e( LOGTAG, "localDeviceAdded  RemoteDevice=" + device.getIdentity( ).getUdn( ) );
-            display.setHostUrl( null );
+            display.setHostUrl( MediaServer.LocalURL );
             deviceAdded( display );
         }
 
@@ -572,6 +573,8 @@ public class DLNAServer {
 
     private ArrayList<String> qurestParentsIDs = new ArrayList<String>( );
 
+    
+    
     /**
      * ==========================================<BR>
      * 功能：浏览文件是否可以返回上一级 <BR>
@@ -580,32 +583,32 @@ public class DLNAServer {
      * ==========================================
      */
     public boolean canBack() {
-        return qurestParentsIDs.size( ) > 0;
+        return qurestParentsIDs.size( ) > 1;
     }
 
     public void back() {
         if (canBack( )) {
-            String id = qurestParentsIDs.remove( qurestParentsIDs.size( ) - 1 );
+            String id = qurestParentsIDs.remove( qurestParentsIDs.size( ) - 2);
             Service<?, ?> service = getCurrentService( );
             if (service == null) {
                 MyLog.e( LOGTAG, "==========back=====selectDevice=service==null================" );
                 return;
             }
             upnpService.getControlPoint( ).execute( new ContentBrowseActionCallback( service, id ) );
-
         }
     }
-
+    
     class ContentBrowseActionCallback extends Browse {
 
         // private Service<?, ?> service;
         // private Container container;
         // ContentItem mContentItem;
 
-        public ContentBrowseActionCallback(Service<?, ?> service, Container container/* , ArrayAdapter<ContentItem> listadapter */) {
+        public ContentBrowseActionCallback(Service<?, ?> service, Container container) {
             super( service, container.getId( ), BrowseFlag.DIRECT_CHILDREN, "*", 0, 0, new SortCriterion( true, "dc:title" ) );
             qurestParentsIDs.add( container.getId( ) );
             MyLog.d( LOGTAG, "container.getId( )=" + container.getId( ) );
+            MyLog.d( LOGTAG, "qurestParentsIDs" + qurestParentsIDs );
             // this.container = container;
             // ContentItem mContentItem;
         }
@@ -641,33 +644,31 @@ public class DLNAServer {
                     ArrayList<DIDLObject> containerList = new ArrayList<DIDLObject>( );// 结果
                     try {
                         // Containers first
-                        if (didl.getContainers( ).size( ) > 0)
-                            // for (Container childContainer : didl.getContainers( )) {
-                            // Log.e( "ContentBrowseActionCallback", "add child container " + childContainer.getTitle( ) );
-                            // containerList
-                            // }
-                            containerList.addAll( didl.getContainers( ) );
+                        // if (didl.getContainers( ).size( ) > 0)
+                        // for (Container childContainer : didl.getContainers( )) {
+                        // Log.e( "ContentBrowseActionCallback", "add child container " + childContainer.getTitle( ) );
+                        // containerList
+                        // }
+                        containerList.addAll( didl.getContainers( ) );
                         // Now items
-                        if (didl.getItems( ).size( ) > 0)
-                            for (Item childItem : didl.getItems( )) {
-                                Log.e( "ContentBrowseActionCallback", "add child item" + childItem.getTitle( ) );
-                                // if (childItem instanceof VideoItem) {
-                                // Log.e( "ContentBrowseActionCallback", "-----------=========== path item" + ((VideoItem) childItem).getAlbumArtURI( ) );
-                                // }
-                                Log.e( "ContentBrowseActionCallback", childItem.toString( ) );
-                            }
+                        // if (didl.getItems( ).size( ) > 0)
+                        // for (Item childItem : didl.getItems( )) {
+                        // Log.e( "ContentBrowseActionCallback", "add child item" + childItem.getTitle( ) );
+                        // if (childItem instanceof VideoItem) {
+                        // Log.e( "ContentBrowseActionCallback", "-----------=========== path item" + ((VideoItem) childItem).getAlbumArtURI( ) );
+                        // }
+                        // Log.e( "ContentBrowseActionCallback", childItem.toString( ) );
+                        // }
                         containerList.addAll( didl.getItems( ) );
                         if (mDLNAListener != null) {
                             mDLNAListener.updateContent( containerList );
+//                            mDLNAListener.updateBack( qurestParentsIDs );
                         }
-
                     } catch (Exception ex) {
                         Log.e( "ContentBrowseActionCallback", "Creating DIDL tree nodes failed: " + ex );
                         actionInvocation.setFailure( new ActionException( ErrorCode.ACTION_FAILED, "Can't create list childs: " + ex, ex ) );
                         failure( actionInvocation, null );
-
                     }
-
                 }
             } );
         }

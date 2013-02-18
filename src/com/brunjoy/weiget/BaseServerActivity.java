@@ -77,7 +77,6 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.SubMenu;
 import com.brunjoy.duanluo.imgdowner.BitmapUtil;
-import com.brunjoy.duanluo.imgdowner.ImageDownloader;
 import com.brunjoy.duanluo.imgdowner.MyLog;
 import com.brunjoy.duanluo.video.VideoViewActivity;
 import com.brunjoy.manager.ServiceManager;

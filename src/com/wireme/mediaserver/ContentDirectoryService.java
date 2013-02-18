@@ -13,26 +13,24 @@ import org.teleal.cling.support.model.item.Item;
 
 import android.util.Log;
 
-import com.brunjoy.duanluo.imgdowner.MyLog;
-
 public class ContentDirectoryService extends AbstractContentDirectoryService {
-    private final static String LOGTAG = "MediaServer-CDS";
+    // private final static String LOGTAG = "MediaServer-CDS";
     @Override
     public BrowseResult browse(String objectID, BrowseFlag browseFlag, String filter, long firstResult, long maxResults, SortCriterion[] orderby) throws ContentDirectoryException {
         try {
             DIDLContent didl = new DIDLContent( );
             ContentNode contentNode = ContentTree.getNode( objectID );
-            Log.e( "hai", "someone's browsing id: " + objectID );
+            // Log.e( "hai", "someone's browsing id: " + objectID );
             if (contentNode == null)
                 return new BrowseResult( "", 0, 0 );
             if (contentNode.isItem( )) {
                 didl.addItem( contentNode.getItem( ) );
-                MyLog.e( LOGTAG, "returing item: " + contentNode.getItem( ).getTitle( ) );
+                // MyLog.e( LOGTAG, "returing item: " + contentNode.getItem( ).getTitle( ) );
                 return new BrowseResult( new DIDLParser( ).generate( didl ), 1, 1 );
             } else {
                 if (browseFlag == BrowseFlag.METADATA) {
                     didl.addContainer( contentNode.getContainer( ) );
-                    MyLog.e( LOGTAG, "returning metadata of container: " + contentNode.getContainer( ).getTitle( ) );
+                    // MyLog.e( LOGTAG, "returning metadata of container: " + contentNode.getContainer( ).getTitle( ) );
                     return new BrowseResult( new DIDLParser( ).generate( didl ), 1, 1 );
                 } else {
                     int num = 0;
@@ -43,16 +41,16 @@ public class ContentDirectoryService extends AbstractContentDirectoryService {
                         num++;
                         if (num > maxResults)
                             break;
-                        MyLog.e( LOGTAG, "------------------getting child container: " + container.getTitle( ) );
+                        // MyLog.e( LOGTAG, "------------------getting child container: " + container.getTitle( ) );
                     }
                     for (Item item : contentNode.getContainer( ).getItems( )) {
                         didl.addItem( item );
                         num++;
                         if (num > maxResults)
                             break;
-                        MyLog.e( LOGTAG, "--------------getting child item: " + item.getTitle( ) );
+                        // MyLog.e( LOGTAG, "--------------getting child item: " + item.getTitle( ) );
                     }
-                    MyLog.e( LOGTAG, "--------------getting child firstResult: " + firstResult + "   maxResults=" + maxResults + "  num=" + num );
+                    // MyLog.e( LOGTAG, "--------------getting child firstResult: " + firstResult + "   maxResults=" + maxResults + "  num=" + num );
                     return new BrowseResult( new DIDLParser( ).generate( didl ), contentNode.getContainer( ).getChildCount( ), contentNode.getContainer( ).getChildCount( ) );
                 }
             }
@@ -67,7 +65,7 @@ public class ContentDirectoryService extends AbstractContentDirectoryService {
     @Override
     public BrowseResult search(String containerId, String searchCriteria, String filter, long firstResult, long maxResults, SortCriterion[] orderBy)
             throws ContentDirectoryException {
-        Log.e( "hai", "-----------searchsearchsearchsearchsearchsearch------" );
+        // Log.e( "hai", "-----------searchsearchsearchsearchsearchsearch------" );
         Log.e( "hai", "-----------searchsearchsearchsearchsearchsearch------" );
         Log.e( "hai", "-----------searchsearchsearchsearchsearchsearch------" );
         // You can override this method to implement searching!

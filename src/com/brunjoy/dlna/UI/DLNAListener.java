@@ -35,6 +35,10 @@ public abstract class DLNAListener {
     public void updateContent(ArrayList<DIDLObject> containerList) {
         // TODO Auto-generated method stub
 
+    }
+
+    public void updateBack(ArrayList<String> qurestParentsIDs) {
+        
     };
 
 }

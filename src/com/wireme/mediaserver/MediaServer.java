@@ -65,9 +65,9 @@ public class MediaServer {
         LocalURL = "http://" + getAddress( );
         try {
             icon = new Icon( "image/png", 72, 72, 32, URI.create( path ), IO.readBytes( new File( path ) ) );
-            MyLog.d( "mediaServer", "11111111icon=" + icon.toString( ) );
+//            MyLog.d( "mediaServer", "11111111icon=" + icon.toString( ) );
             localDevice = new LocalDevice( new DeviceIdentity( udn ), type, details, icon, service );
-            MyLog.d( "mediaServer", "22222222icon=" + icon.toString( ) );
+//            MyLog.d( "mediaServer", "22222222icon=" + icon.toString( ) );
         } catch (Exception e) {
             e.printStackTrace( );
             MyLog.e( "mediaServer", "Exception  e=" + e.getMessage( ) );
